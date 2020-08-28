@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+</head>
+
+<body class="bg-light">
+    <header>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Halaman Login</h3>
+                        <p id="gagal"></p>
+                        <form action="../back end/prosesLogin.php" method="post">
+                            <table>
+                                <tr>
+                                    <td>Username</td>
+                                    <td><input type="text" name="username"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" name="password"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" name="login" value="Log In"></td>
+                                </tr>
+                            </table>
+                            Belum punya akun?
+                            <a href="../front end/register.html">Registrasi di sini</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <script>
+        function getUrlVars(param = null) {
+            if (param !== null) {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars[param];
+            }
+            else {
+                return null;
+            }
+        }
+        var a = getUrlVars("pesan");
+        if (a != null) {
+            document.getElementById("gagal").innerHTML = a;
+        }
+
+    </script>
+
+</body>
+
+</html>
